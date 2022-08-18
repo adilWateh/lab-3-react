@@ -5,7 +5,7 @@ import CharacterCard from './CharacterCard';
 const word = "Hello";
 function App() {
   return (
-    <div>
+    <div >
  {
  Array.from(word).map((c, i) => <CharacterCard value={c} key={i}/>)
  }
