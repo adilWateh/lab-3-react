@@ -60,7 +60,7 @@ export default function WordCard(props) {
                 )
             }
             <div className="container text-center">
-                <button className='btn btn-danger reset-btn' onClick={handleClick}>Reset</button>
+                <button className='btn btn-danger reset-btn' onClick={handleClick}>Reword/reset</button>
             </div>
             <div className="container">
                 <br />
