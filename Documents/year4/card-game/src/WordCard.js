@@ -8,7 +8,7 @@ const prepareStateFromWord = given_word => {
     return {
         word,
         chars,
-        attemp: 1,
+        attempt: 1,
         guess: '',
         completed: false
     }
@@ -17,9 +17,9 @@ const prepareStateFromWord = given_word => {
 export default function WordCard(props) {
 
     const [state, setState] = useState(prepareStateFromWord(props.value))
-    
+    console.log(state)
     function resetGame() {
-        setState({...state, guess: '',attemp: state.attemp+1})
+        setState({...state, guess: '',attempt: state.attempt + 1})
     }
 
     function handleClick() {
@@ -35,12 +35,12 @@ export default function WordCard(props) {
         if(state.guess.length === state.word.length){
             if(state.guess === state.word){
                 console.log('yeah!')
-                
+                setState({...state, completed: true})
                 
             }
             else{
-                console.log('reset, next attemp')
-                
+                console.log('reset, next attempt')
+                setState({...state, guess: '', attempt: state.attempt + 1})
             }
         }
         
@@ -53,16 +53,16 @@ export default function WordCard(props) {
     
     
     return (
-        <div className='text-center'>
+        <div >
             {
                 state.chars.map((c, i) => 
-                    <CharacterCard value={c} key={i} activationHandler={activationHandler} attemp={state.attemp}/>
+                    <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt}/>
                 )
             }
-            <div className="container text-center">
-                <button className='btn btn-danger reset-btn' onClick={handleClick}>Reword/reset</button>
+            <div >
+                <button onClick={handleClick}>Reword/reset</button>
             </div>
-            <div className="container">
+            <div >
                 <br />
                 <h1>{state.guess}</h1>
                 {
