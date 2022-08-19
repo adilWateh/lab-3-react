@@ -2,7 +2,8 @@
 import './App.css';
 import WordCard from './WordCard';
 
-const words = ['hello', 'school', 'morning', 'eye'];
+const words = ['hello', 'school', 'morning', 'eye', 'noob'];
+
 function App() {
   return (
     <div>
